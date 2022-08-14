@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     {{>headerlinks}}
+</head>
+
+<body>
+     {{>navbar}}
+    <!-- ########################################main header#########################  -->
+    <div class="container-fluid main_header">
+        <div class="row ">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form  class="temp_form">
+                        <input type="text" id="cityname" class="badge-pill" placeholder="Enter Your City Name" autocomplete="off">
+                         <input type="submit" value="search" class="badge-pill" id="submitbtn">
+                    </form>
+                </div>
+                <div class="tempinfromation">
+                    <div class="top_layer">
+                        <p class="day">Tuesday</p>
+                        <p class="today_day"> 13 Oct</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middlelayer data_hide">
+                            <p id="temp"> <span>0</span><sup>0</sup> C</p>
+                            <p id="temp_status"> <i class="fa fa-cloud fa-6x"></i> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ########################################footer #################################  -->
+  {{>footer}}
+  <script src="js/main.js"></script>
+  <script>
+    let day=document.querySelector('.day');
+    let date=document.querySelector('.today_day');
+
+    const getdates=()=>{
+        const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        const month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        
+        const dayys=new Date().getDay();
+        day.innerText=days[dayys];
+
+        const months=new Date().getMonth();
+        const dates_show =new Date().getDate();
+        
+        date.innerText=`${dates_show} ${month[months]}`;
+
+    }
+    getdates();
+  </script>
+</body>
+
+</html>
